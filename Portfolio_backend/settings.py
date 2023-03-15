@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-r^7%si&53s21ej@8@b%oy^l4gm!#5!2)_=+9z$mp)!a+s)0&5*'
+SECRET_KEY = os.getenv("SECRET_KEY_Portfolio")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -72,19 +75,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Portfolio_backend.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-# DATABASES = {
-#     "default": {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'pbackend',
-#         "USER": 'ali',
-#         "PASSWORD": "1234567890",
-#         "HOST": "localhost",
-#         "PORT": '5432'
-#     }
-# }
 
 
 DATABASES = {
